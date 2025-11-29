@@ -2,7 +2,7 @@
 
 require_once "./utils.php";
 
-$OPENAI_KEY = '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';
+$OPENAI_KEY = 'replace_me';
 
 function ask_ai($text)
 {

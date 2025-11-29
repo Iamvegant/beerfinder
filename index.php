@@ -67,22 +67,70 @@
         <div id="overlay"></div>
     </header>
     <main id="app">
-        <!--<div id="finder">
-            <div id="search">
-                <input id="searchbar" type="text" placeholder="<?= $t['search_placeholder'] ?>">
-                <button id="search-bt"><img id="mag-glass" src="/assets/img/magnifying_glass.png" alt="magnifying_glass"></button>
-            </div>
-        </div>-->
-        <div id="finder">
-            <forms> </forms>
+        
+        <!-- <div id="finder">
+            <forms :translations="translations" lang="<?= $lang?>" post="<?= $_POST ?>"></forms>
+        </div> -->
+
+        <?php if(!$_POST['city']): ?>
+        <div id="select-beer">
+        <form action="/index.php/?lang=<?= $lang ?>" method="POST">
+            
+            <label for="select-beer"><?= $t["formBeer"]["selectBeer"]?> </label>
+            <br>
+            <input type="text" 
+            id="select-beer" 
+            name="select-beer" 
+            value="<?= $_POST['select-beer']?>"><br> 
+            <?php if(isset($_POST['select-beer'])): ?> 
+                <label for="select-beer"><?= $t["what"]["city"]?></label> 
+                <input type="text" id="city" name="city" value="<?= $_POST['city']?>"><br> 
+            <?php endif?> 
+            <input type="submit" value="<?= $t["header"]["langMenu"]["button"]?>"> 
+        </form> 
+        <button> <p><?= $t["noBeer"]["idk"]?></p> </button>
         </div>
+        <?php endif?>
+
+       <searching :translations="translations"></searching> 
+
+        <div class="cards-container">
+            <beers v-for="beer in info" :beer="beer" :key="beer.id"></beers>
+        </div>
+
 
     </main>
     <footer>
-
-    </footer>
-    <script defer src="/assets/scripts/script.js"></script>
+   <div class="footer-container">
+    <div class="footer-about">
+      <h3>BeerFinder</h3>
+      <p>Skupina programatorov a milovnikov piva</p> 
+    </div>
+    <div class="footer-links">
+      <h4>Rýchle odkazy</h4>
+      <ul>
+        <li><a href="#">Domov</a></li>
+        <li><a href="#">O nás</a></li>
+        <li><a href="#">Služby</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h4>Sleduj nás</h4>
+      <div class="social-icons">
+        <a href="#"><img src="/img/facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 BeerFinder. Všetky práva vyhradené.</p>
+  </div>
+    <footer> 
+    <script src="/assets/scripts/global.js"></script>
+    <script type="module" defer src="/assets/scripts/script.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="module" src="/assets/scripts/beer.js"></script>
-</body>   
+</body> 
+
 </html>

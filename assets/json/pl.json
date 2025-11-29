@@ -190,5 +190,6 @@
     },
     "what": {
         "city": "Wprowadź miasto: "
-    }
+    },
+    "search_placeholder": "Napisz cechy swojego piwa"
 }

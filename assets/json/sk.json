@@ -190,5 +190,6 @@
     },
     "what": {
         "city": "Zadajte mesto: "
-    }
+    },
+    "search_placeholder": "Napis vlastnosti svojho piva"
 }

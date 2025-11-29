@@ -1,25 +1,34 @@
 let form = {
-    
-    template:`
-    <form action="/index.php/?lang=<?= $lang ?>" method="POST">
-                
-        <label for="select-beer"><?= $t["formBeer"]["selectBeer"]?> </label>
-        <input type="text" id="select-beer" name="select-beer" value="<?= $_POST['select-beer']?>"><br>
-        
-        
-        <?php if(isset($_POST['select-beer'])): ?>
-            <label for="select-beer"><?= $t["what"]["city"]?></label>
-            <input type="text" id="city" name="city" value="<?= $_POST['city']?>"><br>
-        <?php endif?>
-        <input type="submit" value="<?= $t["header"]["langMenu"]["button"]?>">
+    template: `
+    <form v-if="translations.formBeer" :action="'/index.php/?lang=' + lang" method="POST">
+        <label for="select-beer">{{ translations.formBeer.selectBeer }}</label>
+        <input 
+            type="text"
+            id="select-beer"
+            name="select-beer"
+            :value="post['select-beer'] || ''"
+        ><br>
 
+        <div v-if="post['select-beer']">
+            <label for="city">{{ translations.what.city }}</label>
+            <input 
+                type="text"
+                id="city"
+                name="city"
+                :value="post['city'] || ''"
+            ><br>
+        </div>
+
+        <input type="submit" :value="translations.header.langMenu.button">
     </form>
 
-    <button>
-        <p><?= $t["noBeer"]["idk"]?></p>
-    </button>
-    `
-}
+    <button>{{ translations.noBeer.idk }}</button>
+    `,
+    props: {
+        translations: { type: Object, required: true },
+        post: { type: Object, default: () => ({}) },
+        lang: { type: String, required: true }
+    }
+};
 
-
-export default form
+export default form;

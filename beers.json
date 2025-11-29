@@ -1,597 +1,997 @@
 [
     {
-        "nameOfPub": "Geronimo Grill",
+        "name_of_pub": "Geronimo Grill & Bar Košice",
         "address": "Hlavná 74, 040 01 Košice",
         "beers": [
             {
                 "name": "Krušovice 12",
-                "price_per_500ml": "2,90 €"
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
+                "price_per_500ml": "2.90"
+            },
+            {
+                "name": "Krušovice 12",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
+                "price_per_500ml": "2.90"
             },
             {
                 "name": "Zlatý Bažant nealko",
-                "price_per_500ml": "2,90 €"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.90"
+            },
+            {
+                "name": "Zlatý Bažant nealko",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.90"
+            },
+            {
+                "name": "Heineken",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "",
+                "price_per_500ml": ""
             },
             {
                 "name": "Zlatý Bažant 73",
-                "price_per_500ml": "2,90 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "",
+                "price_per_500ml": "2.90"
             },
             {
                 "name": "Zlatý Bažant citrón nealko",
-                "price_per_500ml": "2,90 €"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": ""
             }
         ]
     },
     {
-        "nameOfPub": "Riders Pub",
+        "name_of_pub": "Riders Pub",
         "address": "Južná trieda 48 (vo dvore)\nKošice 040 01",
         "beers": [
             {
                 "name": "Pilsner Urquell 12°",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
                 "price_per_500ml": "2,90 €"
             },
             {
+                "name": "Pilsner Urquell 12°",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
+                "price_per_500ml": "4,17 €"
+            },
+            {
                 "name": "Radegast 10°",
+                "color": "light",
+                "alcohol_amount": "5",
+                "type": "Lager",
                 "price_per_500ml": "2,30 €"
             },
             {
+                "name": "Radegast 10°",
+                "color": "light",
+                "alcohol_amount": "5",
+                "type": "Lager",
+                "price_per_500ml": "3,00 €"
+            },
+            {
                 "name": "Birell pomelo-grep",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "2,20 €"
             },
             {
+                "name": "Birell pomelo-grep",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "3,00 €"
+            },
+            {
                 "name": "Voľba sládkov",
-                "price_per_500ml": ""
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "",
+                "price_per_500ml": "3,38 €"
             },
             {
                 "name": "Ratar",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "",
                 "price_per_500ml": "2,60 €"
             },
             {
                 "name": "Šariš tmavý",
+                "color": "dark",
+                "alcohol_amount": "",
+                "type": "Dark lager",
                 "price_per_500ml": "2,50 €"
             },
             {
                 "name": "Corona",
-                "price_per_500ml": ""
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "5,30 €"
             },
             {
                 "name": "Birell nealko",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "2,30 €"
             },
             {
                 "name": "Steiger Radler",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
                 "price_per_500ml": "2,30 €"
             },
             {
                 "name": "Pilsner Urquell",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
                 "price_per_500ml": "2,60 €"
             }
         ]
     },
     {
-        "nameOfPub": "Pivovar Hostinec",
+        "name_of_pub": "Pivovar Hostinec",
         "address": "Hlavná 65, 040 01 Košice",
         "beers": [
             {
                 "name": "Hostinská 12°",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
                 "price_per_500ml": ""
             },
             {
                 "name": "Košickí majstri",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Ale",
                 "price_per_500ml": ""
             },
             {
                 "name": "BB Love Garden Party",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Ale",
                 "price_per_500ml": ""
             },
             {
                 "name": "Hostinský Radler",
+                "color": "light",
+                "alcohol_amount": "1.25",
+                "type": "Non-alcoholic",
                 "price_per_500ml": ""
             },
             {
                 "name": "Lesmír",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Ale",
                 "price_per_500ml": ""
             },
             {
                 "name": "Pivoruký Edward",
+                "color": "dark",
+                "alcohol_amount": "",
+                "type": "Dark lager",
                 "price_per_500ml": ""
             },
             {
                 "name": "Jantár",
+                "color": "dark",
+                "alcohol_amount": "",
+                "type": "Dark lager",
                 "price_per_500ml": ""
             },
             {
                 "name": "Aloha IPA",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Ale",
                 "price_per_500ml": ""
             },
             {
                 "name": "Lemongrass",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Ale",
                 "price_per_500ml": ""
             },
             {
                 "name": "Pivovica",
+                "color": "dark",
+                "alcohol_amount": "",
+                "type": "Alcoholic",
                 "price_per_500ml": ""
             },
             {
                 "name": "Born to ride",
+                "color": "dark",
+                "alcohol_amount": "",
+                "type": "Ale",
                 "price_per_500ml": ""
             },
             {
                 "name": "Cardinal",
+                "color": "dark",
+                "alcohol_amount": "",
+                "type": "Ale",
                 "price_per_500ml": ""
             }
         ]
     },
     {
-        "nameOfPub": "Central pub & restaurant",
+        "name_of_pub": "Central pub & restaurant",
         "address": "Hlavná 85, 040 01 Košice",
         "beers": [
             {
                 "name": "Pilsner Urquell z tanku",
+                "color": "light",
+                "alcohol_amount": "5",
+                "type": "Lager",
                 "price_per_500ml": "3,30 EUR"
             },
             {
                 "name": "Gambrinus 10°",
+                "color": "light",
+                "alcohol_amount": "5",
+                "type": "Lager",
                 "price_per_500ml": "2,80 EUR"
             },
             {
                 "name": "Šariš svetlý ležiak 12°",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
                 "price_per_500ml": "2,80 EUR"
             },
             {
                 "name": "Šariš tmavý ležiak 10°",
+                "color": "dark",
+                "alcohol_amount": "5",
+                "type": "Dark lager",
                 "price_per_500ml": "2,80 EUR"
             },
             {
                 "name": "Voľba Sládkov – Limitovaná edícia",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "",
                 "price_per_500ml": "3,75 EUR"
             },
             {
                 "name": "Birell pomelo - grep nealko",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "2,80 EUR"
             },
             {
                 "name": "Birell nealko",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "2,80 EUR"
             },
             {
                 "name": "Rezané pivo",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Ale",
                 "price_per_500ml": "2,80 EUR"
             }
         ]
     },
     {
-        "nameOfPub": "Krčma Letná",
+        "name_of_pub": "Krčma Letná",
         "address": "Letná 1, Košice 04001",
         "beers": [
             {
                 "name": "Pilsner urquell",
-                "price_per_500ml": "5.30 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "5.30"
             },
             {
                 "name": "Padre Craft MUSTÁŽ 12°",
-                "price_per_500ml": "7.42 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Ale",
+                "price_per_500ml": ""
             },
             {
                 "name": "Kaltenecker Tokaj IPA 13°",
-                "price_per_500ml": "7.42 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Ale",
+                "price_per_500ml": "7.42"
             },
             {
                 "name": "Kaltenecker Brokat Dark 13°",
-                "price_per_500ml": "7.42 €"
+                "color": "dark",
+                "alcohol_amount": "",
+                "type": "Dark lager",
+                "price_per_500ml": "7.42"
             },
             {
-                "name": "Pilsner Urquell",
-                "price_per_500ml": "4.33 €"
+                "name": "Pilsner Urquell (čapované 0,3l)",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "4.33"
             },
             {
-                "name": "Pilsner Urquell",
-                "price_per_500ml": "3.70 €"
+                "name": "Pilsner Urquell (čapované 0,5l)",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "3.70"
             },
             {
                 "name": "BIRELL",
-                "price_per_500ml": "4.85 €"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": ""
             }
         ]
     },
     {
-        "nameOfPub": "PILSNER URQUELL PUB",
+        "name_of_pub": "PILSNER URQUELL PUB",
         "address": "SC Aupark Košice",
         "beers": [
             {
                 "name": "Pilsner Urquell tankové 12° – hladinka",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
                 "price_per_500ml": "3.30 €"
             },
             {
                 "name": "Pilsner Urquell tankové 12° – „šnyt“",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
                 "price_per_500ml": "4.33 €"
             },
             {
                 "name": "Pilsner Urquell tankové 12° – „mlíko“",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
                 "price_per_500ml": "4.33 €"
             },
             {
                 "name": "Šariš tmavé 12°",
+                "color": "dark",
+                "alcohol_amount": "6",
+                "type": "Dark lager",
                 "price_per_500ml": "2.80 €"
             },
             {
                 "name": "Birell nealko",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "2.80 €"
             },
             {
                 "name": "Master tmavé 18°",
+                "color": "dark",
+                "alcohol_amount": "9",
+                "type": "Dark lager",
                 "price_per_500ml": "3.88 €"
             },
             {
                 "name": "Rezané",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Alcoholic",
                 "price_per_500ml": "2.95 €"
             },
             {
                 "name": "Radler Pilsner",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Alcoholic",
                 "price_per_500ml": "3.20 €"
             },
             {
                 "name": "Radler nealko",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "3.10 €"
             },
             {
                 "name": "Birell Pomelo & Grep",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "2.80 €"
             },
             {
                 "name": "Guinness",
+                "color": "dark",
+                "alcohol_amount": "2.5",
+                "type": "Dark lager",
                 "price_per_500ml": "4.90 €"
             }
         ]
     },
     {
-        "nameOfPub": "GOLDEN ROYAL Boutique & SPA ****",
+        "name_of_pub": "GOLDEN ROYAL Boutique & SPA ****",
         "address": "Vodná 8, 040 01 Košice, Slovensko",
         "beers": [
             {
-                "name": "Pilsner Urquell 12%",
-                "price_per_500ml": "4,00 €"
+                "name": "Pilsner Urquell",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
+                "price_per_500ml": "4.00"
             },
             {
-                "name": "Pilsner Urquell 12%",
-                "price_per_500ml": "4,00 €"
-            },
-            {
-                "name": "Zlatý Bažant nealko 0%",
-                "price_per_500ml": ""
+                "name": "Zlatý Bažant nealko",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "3.79"
             }
         ]
     },
     {
-        "nameOfPub": "Vicolo Ristorante",
+        "name_of_pub": "Vicolo",
         "address": "OC Optima Moldavská 32, 040 11 Košice",
         "beers": [
             {
                 "name": "Pilsner Urquell 12°",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
                 "price_per_500ml": "4.17€"
             },
             {
                 "name": "Šariš - tmavý 11°",
+                "color": "dark",
+                "alcohol_amount": "5.5",
+                "type": "Dark lager",
                 "price_per_500ml": "2.30€"
             },
             {
                 "name": "Radegast Birell",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "2.30€"
             },
             {
                 "name": "Radegast Birell Radler",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "2.30€"
             }
         ]
     },
     {
-        "nameOfPub": "Piváreň Bokovka",
+        "name_of_pub": "Piváreň Bokovka",
         "address": "Dolné Bašty 1 – City Arena, 917 01 Trnava",
         "beers": [
             {
                 "name": "Radegast 10°",
+                "color": "light",
+                "alcohol_amount": "5",
+                "type": "Lager",
                 "price_per_500ml": "2.90 €"
             },
             {
                 "name": "Pilsner Urquell 12°",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
                 "price_per_500ml": "3.30 €"
             },
             {
                 "name": "Šariš tmavý 12°",
+                "color": "dark",
+                "alcohol_amount": "6",
+                "type": "Dark lager",
                 "price_per_500ml": "2.60 €"
             },
             {
                 "name": "Birell nealkoholický",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "2.80 €"
             },
             {
-                "name": "Domáci radler (0,3l)",
-                "price_per_500ml": ""
-            },
-            {
-                "name": "Domáci radler (0,5l)",
+                "name": "Domáci radler (Malina-Ruža, Citrón, Mäté-Mäta)",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "3.20 €"
             }
         ]
     },
     {
-        "nameOfPub": "Banco del Peru Restaurant",
+        "name_of_pub": "Banco del Peru",
         "address": "",
         "beers": [
             {
                 "name": "Pilsner Urquell",
-                "price_per_500ml": "2.80 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "2.80"
             },
             {
                 "name": "Pilsner Urquell",
-                "price_per_500ml": "2.10 €"
-            },
-            {
-                "name": "Veľkopopovický kozel 10º",
-                "price_per_500ml": "2.20 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "3.50"
             },
             {
                 "name": "Šariš 11º tmavý",
-                "price_per_500ml": "2.20 €"
+                "color": "dark",
+                "alcohol_amount": "5.5",
+                "type": "Dark lager",
+                "price_per_500ml": "2.20"
             },
             {
                 "name": "Birell pomelo, grep",
-                "price_per_500ml": "2.30 €"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.20"
+            },
+            {
+                "name": "Birell pomelo, grep",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.30"
             },
             {
                 "name": "Birell nealkoholický",
-                "price_per_500ml": "2.20 €"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.20"
             },
             {
                 "name": "Pilsner Urquell",
-                "price_per_500ml": "2.50 €"
-            },
-            {
-                "name": "Birell pomelo, grep",
-                "price_per_500ml": "2.20 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "2.50"
             }
         ]
     },
     {
-        "nameOfPub": "Starý dom",
+        "name_of_pub": "Starý dom",
         "address": "Hurbanovo námestie 6\/9, Bojnice 972 01",
         "beers": [
             {
                 "name": "Pilsner Urquell 12%",
-                "price_per_500ml": "3.75€"
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
+                "price_per_500ml": "3,75€"
             },
             {
                 "name": "Martins Bio svetlé 12%",
-                "price_per_500ml": "3.75€"
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
+                "price_per_500ml": "3,75€"
             },
             {
                 "name": "Urpiner premium 10%",
-                "price_per_500ml": "3.75€"
+                "color": "light",
+                "alcohol_amount": "5",
+                "type": "Lager",
+                "price_per_500ml": "3,75€"
             },
             {
                 "name": "Kaprál Urpiner polotmavé 11%",
-                "price_per_500ml": "3.75€"
+                "color": "dark",
+                "alcohol_amount": "5.5",
+                "type": "Dark lager",
+                "price_per_500ml": "3,75€"
             },
             {
                 "name": "Birell nealko radler Pomelo-grep",
-                "price_per_500ml": "3.75€"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "3,75€"
             },
             {
                 "name": "Urpiner nealko svetlé fl.",
-                "price_per_500ml": "3.00€"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "3,00€"
             }
         ]
     },
     {
-        "nameOfPub": "",
+        "name_of_pub": "",
         "address": "",
         "beers": [
             {
                 "name": "PILSNER URQUELL",
-                "price_per_500ml": "3.30€"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "3.30"
+            },
+            {
+                "name": "PILSNER URQUELL",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "3.30"
             },
             {
                 "name": "BIRELL NEALKO POMELO GREP",
-                "price_per_500ml": "3.00€"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "4.17"
+            },
+            {
+                "name": "BIRELL NEALKO POMELO GREP",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "3.00"
             },
             {
                 "name": "BIRELL NEALKO",
-                "price_per_500ml": "3.00€"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "4.17"
+            },
+            {
+                "name": "BIRELL NEALKO",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "3.00"
             }
         ]
     },
     {
-        "nameOfPub": "BENVENUTI",
-        "address": "Nábrežná 7\nPrievidza 971 01",
+        "name_of_pub": "Reštaurácia - Benvenuti",
+        "address": "Nábrežná 7, Prievidza 971 01",
         "beers": [
             {
                 "name": "ČAPOVANÝ ZLATÝ BAŽANT 73 12°",
-                "price_per_500ml": "2,30€"
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
+                "price_per_500ml": "2.50"
             },
             {
-                "name": "ČAPOVANÝ RADLER ZLATÝ BAŽANT CITRON",
-                "price_per_500ml": "2,30€"
+                "name": "RADLER ZLATÝ BAŽANT CITRON",
+                "color": "light",
+                "alcohol_amount": "empty",
+                "type": "Alcoholic",
+                "price_per_500ml": "2.30"
             },
             {
                 "name": "KRUŚOVICE 10°",
-                "price_per_500ml": "2,00€"
+                "color": "light",
+                "alcohol_amount": "5",
+                "type": "Lager",
+                "price_per_500ml": "2.00"
             },
             {
                 "name": "ZLATÝ BAŽANT NEALKO",
-                "price_per_500ml": "2,00€"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.00"
             }
         ]
     },
     {
-        "nameOfPub": "",
+        "name_of_pub": "",
         "address": "",
         "beers": []
     },
     {
-        "nameOfPub": "Reštaurácia Šrámek",
-        "address": "reštaurácia a Pizzeria v Suchej nad Parnou",
+        "name_of_pub": "Reštaurácia Šrámek",
+        "address": "",
         "beers": [
             {
-                "name": "Svijanský Máz 11%",
-                "price_per_500ml": "2,10 €"
+                "name": "Svijanský Máz",
+                "color": "light",
+                "alcohol_amount": "5.5",
+                "type": "Lager",
+                "price_per_500ml": "2.10"
             },
             {
-                "name": "Svijanský Máz 11%",
-                "price_per_500ml": "2,28 €"
+                "name": "Svijanský Máz",
+                "color": "light",
+                "alcohol_amount": "5.5",
+                "type": "Lager",
+                "price_per_500ml": "2.10"
             },
             {
                 "name": "Pilsner Urquell",
-                "price_per_500ml": "2,80 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "2.80"
             },
             {
                 "name": "Pilsner Urquell",
-                "price_per_500ml": "1,70 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "2.80"
             },
             {
                 "name": "Svijanský Vozka nealko",
-                "price_per_500ml": "2,00 €"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.00"
             },
             {
                 "name": "Svijanský Vozka nealko",
-                "price_per_500ml": "1,20 €"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.00"
             },
             {
                 "name": "Svijanská Desítka",
-                "price_per_500ml": "1,70 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "1.70"
             },
             {
                 "name": "Svijanská Kněžná 13%",
-                "price_per_500ml": "2,00 €"
+                "color": "light",
+                "alcohol_amount": "6.5",
+                "type": "Lager",
+                "price_per_500ml": "2.00"
             },
             {
                 "name": "Svijanský Máz 11%",
-                "price_per_500ml": "2,00 €"
+                "color": "light",
+                "alcohol_amount": "5.5",
+                "type": "Lager",
+                "price_per_500ml": "2.00"
             },
             {
                 "name": "Svijanský Vozka nealko",
-                "price_per_500ml": "1,80 €"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "1.80"
             },
             {
                 "name": "Birell Radler",
-                "price_per_500ml": "2,00 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.00"
             },
             {
                 "name": "Pilsner Urquell",
-                "price_per_500ml": "2,50 €"
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Lager",
+                "price_per_500ml": "2.50"
             }
         ]
     },
     {
-        "nameOfPub": "CACTUS RESTAURANT & GRILL",
+        "name_of_pub": "CACTUS RESTAURANT & GRILL",
         "address": "",
         "beers": [
             {
                 "name": "Pilsner Urquell",
+                "color": "light",
+                "alcohol_amount": "12",
+                "type": "Lager",
                 "price_per_500ml": "2.80 EUR"
             },
             {
                 "name": "Pilsner Urquell",
+                "color": "light",
+                "alcohol_amount": "12",
+                "type": "Lager",
+                "price_per_500ml": "3.67 EUR"
+            },
+            {
+                "name": "Birell",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "3.33 EUR"
+            },
+            {
+                "name": "Birell PomeloGrep",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.60 EUR"
+            },
+            {
+                "name": "Birell PomeloGrep",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "3.67 EUR"
             }
         ]
     },
     {
-        "nameOfPub": "Paparazzi Restaurant and Bar",
+        "name_of_pub": "Paparazzi Restaurant and Bar",
         "address": "Kľušov 379, 086 22",
         "beers": [
             {
-                "name": "Pilsner Urquell  0,3l",
-                "price_per_500ml": "4.33€"
+                "name": "Pilsner Urquell",
+                "color": "light",
+                "alcohol_amount": "4",
+                "type": "Lager",
+                "price_per_500ml": "3"
             },
             {
-                "name": "Pilsner Urquell  0,5l",
-                "price_per_500ml": "3.00€"
+                "name": "Birell",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "1.8"
             },
             {
-                "name": "Birell 0,5l",
-                "price_per_500ml": "3.60€"
-            },
-            {
-                "name": "Pomelo & Grep nealko 0,3l",
-                "price_per_500ml": "3.33€"
-            },
-            {
-                "name": "Pomelo & Grep nealko 0,5l",
-                "price_per_500ml": "2.40€"
+                "name": "Pomelo & Grep nealko",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.4"
             }
         ]
     },
     {
-        "nameOfPub": "Reštaurácia BEREK",
+        "name_of_pub": "Reštaurácia Berek Nové Zámky",
         "address": "Tatranská 177, 940 01 Nové Zámky",
         "beers": [
             {
                 "name": "Bernard Svetlý 10°",
-                "price_per_500ml": "2,50€"
+                "color": "light",
+                "alcohol_amount": "5",
+                "type": "Lager",
+                "price_per_500ml": "2.50€"
             },
             {
                 "name": "Radler nealko",
-                "price_per_500ml": "2,50€"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.50€"
             },
             {
                 "name": "Krušovice svetlé 12°",
-                "price_per_500ml": "2,50 €"
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
+                "price_per_500ml": "2.50 €"
             },
             {
                 "name": "Zlatý Bažant Nealko",
-                "price_per_500ml": "2,50 €"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "2.50 €"
             }
         ]
     },
     {
-        "nameOfPub": "Reštaurácia Brix",
+        "name_of_pub": "Reštaurácia Brix",
         "address": "Stromová 32, 831 01 Bratislava",
         "beers": [
             {
                 "name": "Staroprameň 11° Draught beer",
+                "color": "light",
+                "alcohol_amount": "5.5",
+                "type": "Lager",
                 "price_per_500ml": "3.00€"
             },
             {
                 "name": "Staroprameň 11° Draught beer",
-                "price_per_500ml": "5.00€"
+                "color": "light",
+                "alcohol_amount": "5.5",
+                "type": "Lager",
+                "price_per_500ml": "2.50€"
             },
             {
                 "name": "Nealkoholický Radegast Birell",
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
                 "price_per_500ml": "3.30€"
             },
             {
                 "name": "Fľaškový Pilsner Urquell 12° Bottled beer",
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
                 "price_per_500ml": "3.50€"
             },
             {
                 "name": "Fľaškový Pilsner Urquell 12° Bottled beer",
-                "price_per_500ml": "4.55€"
+                "color": "light",
+                "alcohol_amount": "6",
+                "type": "Lager",
+                "price_per_500ml": "3.00€"
             }
         ]
     },
     {
-        "nameOfPub": "Daniel's pub & restaurant",
-        "address": "Daniel's pub & restaurant\nKpt. J. Rašu 14\/A\n841 01 Bratislava - Dúbravka\nSlovensko",
+        "name_of_pub": "Daniel's pub & restaurant",
+        "address": "Kpt. J. Rašu 14\/A, 841 01 Bratislava - Dúbravka, Slovensko",
         "beers": []
     },
     {
-        "nameOfPub": "Galaxy",
+        "name_of_pub": "Reštaurácia GALAXY",
         "address": "Nám. Oslobiteľov 25, Michalovce",
         "beers": []
     },
     {
-        "nameOfPub": "Savage Bistro",
-        "address": "SHAKE THE WORLD s.r.o.\nNámestie Slobody, 811 06, Bratislava",
+        "name_of_pub": "Savage Bistro",
+        "address": "SHAKE THE WORLD s.r.o., Námestie Slobody, 811 06, Bratislava",
         "beers": [
             {
                 "name": "PILSNER URQUELL",
-                "price_per_500ml": "3,90€"
+                "color": "light",
+                "alcohol_amount": "2.5",
+                "type": "Lager",
+                "price_per_500ml": "3.90€"
             },
             {
                 "name": "BIRELL NEALKO",
-                "price_per_500ml": "3,80€"
+                "color": "light",
+                "alcohol_amount": "0",
+                "type": "Non-alcoholic",
+                "price_per_500ml": "3.80€"
             },
             {
                 "name": "BIRELL RADLER",
+                "color": "light",
+                "alcohol_amount": "",
+                "type": "Non-alcoholic",
                 "price_per_500ml": ""
             }
         ]

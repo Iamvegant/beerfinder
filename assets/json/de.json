@@ -190,5 +190,6 @@
     },
     "what": {
         "city": "Stadt eingeben: "
-    }
+    },
+    "search_placeholder": "Beschreiben Sie die Eigenschaften Ihres Bieres."
 }

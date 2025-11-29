@@ -1,51 +1,31 @@
-const {createApp, ref, reactive} = Vue
+const { createApp, ref, reactive } = Vue
 
-import form from "/components/form.js"
-import card from "./card.js"
-import card from ""
+import form from "/assets/components/form.js"
+import search from "/assets/components/search.js"
+import card from "/assets/components/card.js"
 
 createApp({
-    components:{
-        beers:card,
-        forms:form
+    components: {
+        beers: card,
+        searching: search,
+        forms: form
     },
-    setup(){
-        let info = ref([
-        ])
+    setup() {
+        let translations = ref({})
+        let info = ref([])
 
         fetch(`/assets/json/${sessionStorage.getItem("lang")}.json`)
-        .then(request => request.json())
-        .then(data =>{
-            info.value = data.beers;
-        })
+            .then(request => request.json())
+            .then(data => {
+                info.value = data.beers;
+                translations.value = data;
+            })
 
         console.log(info);
 
-        return{
-            info
+        return {
+            info,
+            translations
         }
     }
 }).mount("#app")
-
-const body = document.body;
-const langMenu = document.getElementById("langMenu");
-const overlay = document.getElementById("overlay")
-const langMenuBtn = document.getElementById("langMenuBtn")
-
-function openLangMenu() {
-    overlay.style.display = 'block';
-    langMenu.style.display = 'flex';
-    langMenu.style.visibility = 'visible';
-    body.addEventListener("click", outsideClickLangMenu);
-};
-
-function closeLangMenu() {
-    overlay.style.display = 'none';
-    langMenu.style.display = 'none';
-    langMenu.style.visibility = 'hidden';
-    body.removeEventListener("click", outsideClickLangMenu);
-};
-
-function outsideClickLangMenu(e) {
-    if (!langMenu.contains(e.target) && e.target !== langMenuBtn) closeLangMenu();
-}

@@ -1,71 +1,36 @@
-import fs from 'fs/promises';
-import https from 'https';
+import fs from "fs";
 
-// Configuration - set your OpenAI API key here or in environment variable
-const OPENAI_KEY = process.env.OPENAI_KEY || 'your-api-key-here';
+const OPENAI_KEY = "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"; // or: const OPENAI_KEY = "YOUR_KEY";
 
-/**
- * Fetches HTML content from a URL
- */
-async function htmlFromUrl(url) {
-    return new Promise((resolve, reject) => {
-        https.get(url, (res) => {
-            let data = '';
-            res.on('data', (chunk) => data += chunk);
-            res.on('end', () => resolve(data));
-        }).on('error', reject);
-    });
+async function html_from_url(url) {
+    const res = await fetch(url);
+    return await res.text();
 }
 
-/**
- * Makes a request to OpenAI API
- */
-async function askAI(text) {
-    const data = JSON.stringify({
+async function ask_ai(text) {
+    const data = {
         model: "gpt-4.1-mini",
-        messages: [
-            { role: "user", content: text }
-        ]
+        messages: [{ role: "user", content: text }]
+    };
+
+    const res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${OPENAI_KEY}`
+        },
+        body: JSON.stringify(data)
     });
 
-    return new Promise((resolve, reject) => {
-        const options = {
-            hostname: 'api.openai.com',
-            path: '/v1/chat/completions',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${OPENAI_KEY}`,
-                'Content-Length': data.length
-            }
-        };
-
-        const req = https.request(options, (res) => {
-            let responseData = '';
-            res.on('data', (chunk) => responseData += chunk);
-            res.on('end', () => {
-                try {
-                    const parsed = JSON.parse(responseData);
-                    resolve(parsed.choices[0].message.content);
-                } catch (err) {
-                    reject(err);
-                }
-            });
-        });
-
-        req.on('error', reject);
-        req.write(data);
-        req.end();
-    });
+    const json = await res.json();
+    return json.choices[0].message.content;
 }
 
-/**
- * Recommends pubs based on a specific beer
- */
-async function recommendPub(beerJson, lang = "slovak", pubsJsonSrc = "./beers.json") {
-    const pubsJson = await fs.readFile(pubsJsonSrc, 'utf-8');
-    
-    const prompt = `You are given a JSON array of pubs with their beer lists. Each pub object has this structure:
+async function recomend_pub(beer_json, lang = "slovak", pubs_json_src = "./beers.json") {
+    const pubs_json = fs.readFileSync(pubs_json_src, "utf8");
+
+    const prompt = `
+You are given a JSON array of pubs with their beer lists. Each pub object has this structure:
 
 {
     "name_of_pub": "string (or empty if unknown)",
@@ -100,26 +65,24 @@ Your task is to select pubs that serve a beer matching the provided beer JSON. M
 }
 
 Rules:
+1. Return an array of matching pubs, maximum 5.
+2. If none, return [].
+3. No extra text.
+4. Valid JSON only.
+5. Translate values to ${lang}.
 
-1. Return an array of matching pubs, maximum 5 objects.
-2. If no pub matches, return an empty array: [].
-3. Do not include any extra text, comments, or formatting.
-4. Output must be valid JSON only.
-5. Translate the values in each field to ${lang} language.
+Input beer JSON: ${beer_json}
+Input pubs JSON: ${pubs_json}
+`;
 
-Input beer JSON: ${beerJson}
-Input pubs JSON: ${pubsJson}`;
-
-    return await askAI(prompt);
+    return await ask_ai(prompt);
 }
 
-/**
- * Recommends beers based on user preference
- */
-async function recommendBeer(userPreference, lang = "english", pubsJsonSrc = "./beers.json") {
-    const pubsJson = await fs.readFile(pubsJsonSrc, 'utf-8');
-    
-    const prompt = `You are given a JSON array of pubs with their beer lists. Each pub object has this structure:
+async function recommend_beer(user_preference, lang = "english", pubs_json_src = "./beers.json") {
+    const pubs_json = fs.readFileSync(pubs_json_src, "utf8");
+
+    const prompt = `
+You are given a JSON array of pubs with their beer lists. Each pub object has this structure:
 
 {
     "name_of_pub": "string (or empty if unknown)",
@@ -136,146 +99,99 @@ async function recommendBeer(userPreference, lang = "english", pubsJsonSrc = "./
     ]
 }
 
-
-A user will provide a beer preference (e.g., "I want a strong lager" or "I want a cheap beer"). Your task is to select beers that match the user's preference and return a JSON array of objects with this structure:
+A user will provide a beer preference (e.g., "I want a strong lager").  
+Return a JSON array:
 
 {
-    "name": "beer name",
-    "color": "beer color",
-    "type": "beer type",
-    "alcohol_amount": "amount of alcohol"
+    "name": "",
+    "color": "",
+    "type": "",
+    "alcohol_amount": ""
 }
 
 Rules:
+- Max 5 objects.
+- If none, return [].
+- Valid JSON only.
+- Translate values to ${lang}.
 
-Return an array of matching beers, max 5 objects.
-If no beer matches, return an empty array: [].
-Do not include any extra text, comments, or formatting.
-Output must be valid JSON only.
-translate the values in each field to ${lang} language
-User preference: "${userPreference}"
-Input JSON: ${pubsJson}`;
+User preference: "${user_preference}"
+Input JSON: ${pubs_json}
+`;
 
-    return await askAI(prompt);
+    return await ask_ai(prompt);
 }
 
-/**
- * Converts HTML from a pub website to structured beer JSON
- */
-async function htmlToBeerJson(url) {
-    const html = await htmlFromUrl(url);
-    
-    const prompt = `You are given HTML content from a pub's drink list. Extract and return only a single JSON object with this structure:
+async function html_to_beer_json(url) {
+    const html = await html_from_url(url);
+
+    const prompt = `
+You are given HTML from a pub's drink list. Extract and return one JSON object:
 
 {
-    "name_of_pub": "string (or empty if unknown)",
-    "address": "string (or empty if unknown)",
-    "city": "city from the address"
+    "name_of_pub": "",
+    "address": "",
+    "city": "",
     "beers": [
         {
-        "name": "string (or empty if unknown)",
-        "color": "light or dark,
-        "alcohol_amount": "string (usually in name but multiply it by 0.5) if not given try to find out, just put the number or empty string, if in name it has nealko put 0",
-        "type": "Ale, Lager, Dark lager, Non-alcoholic, Alcoholic or empty if you are not 100% sure",
-        "price_per_500ml": "string (convert if possible, otherwise empty)"
+            "name": "",
+            "color": "",
+            "alcohol_amount": "",
+            "type": "",
+            "price_per_500ml": ""
         }
     ]
 }
 
 Rules:
+- Always return exactly ONE JSON object.
+- No extra text.
+- Fill as many fields as possible.
+- Convert prices to 500ml if possible.
+- Valid JSON only.
 
-Always return exactly one JSON object, never an array.
-Do not add any text before or after the JSON.
-If pub name or address is missing, leave as empty strings.
-Extract all beers with their names, colors, alcohol amounts, types, and prices.
-If the price is not for 500ml, convert if possible; otherwise leave empty.
-Output must be valid JSON only, no backticks or code formatting.
-Try to leave as few places empty as posible.
+HTML content: ${html}
+`;
 
-HTML content: ${html}`;
-
-    return await askAI(prompt);
+    return await ask_ai(prompt);
 }
-
-const URLS = [
-    "https://www.geronimogrill.sk/napojovy-listok",
-    "https://riderspub.sk/?utm_source=chatgpt.com",
-    "https://www.pivovarhostinec.sk/nase-piva/",
-    "https://www.centralpubkosice.sk/-napojovy-listok",
-    "https://www.krcma-letna.sk/napojovy-listok/",
-    "https://www.pilsnerurquellpub.sk/kosice/napojovy-listok/capovane-pivo#region-menu",
-    "https://www.goldenroyal.sk/napojovy-listok/",
-    "https://vicolo.sk/napojovy-listok/",
-    "https://www.pivarenbokovka.sk/napojovy-listok/",
-    "https://bancodelperu.sk/napojovy-listok/",
-    "https://restauraciabojnice.sk/napojovy-listok/",
-    "https://yuza.sk/napojovy-listok/",
-    "https://restauraciabenvenuti.sk/napojovy-listok/",
-    "https://www.mmpub.sk/restauracia/napojovy-listok",
-    "https://www.restauraciasramek.sk/napojovy-listok/",
-    "https://www.cactus.sk/restauracia-grill/napojovy-listok",
-    "https://www.paparazzirestaurant.sk/napojovy-listok/",
-    "https://bereknz.sk/napojovy-listok/",
-    "https://restaurant.brixhotel.sk/napojovy-listok/",
-    "https://www.daniels.sk/napojovy-listok-daniels-pub-restaurant/",
-    "https://www.galaxyrestauracia.sk/napojovy-listok/",
-    "https://savagebistro.sk/napojovy-listok/"
-];
-
-/**
- * Scrapes all pub URLs and creates a JSON file with beer data
- */
-async function createJsonOfPubBeers(urls) {
+async function create_json_of_pub_beers(urls) {
     const results = [];
 
     for (let i = 0; i < urls.length; i++) {
+        const url = urls[i];
+        const json = await html_to_beer_json(url);
+
+        console.log(`${i + 1} of ${urls.length}`);
+
         try {
-            const json = await htmlToBeerJson(urls[i]);
-            console.log(`${i + 1} of ${urls.length}`);
-            
             const decoded = JSON.parse(json);
             results.push(decoded);
-        } catch (err) {
-            console.error(`Error processing ${urls[i]}:`, err.message);
+        } catch (e) {
+            console.error("Invalid JSON from AI:", json);
         }
     }
 
-    console.log("==================================================================");
-    const resultJson = JSON.stringify(results, null, 2);
-    console.log(resultJson);
-    await fs.writeFile("beers.json", resultJson, 'utf-8');
+    const output = JSON.stringify(results, null, 2);
+    fs.writeFileSync("beers.json", output);
+
+    console.log("===============================================");
+    console.log(output);
 }
 
-// Example usage
-async function main() {
-    try {
-        // Uncomment to scrape pubs and create beers.json
-        // await createJsonOfPubBeers(URLS);
-        
-        // Example: Recommend dark beer
-        const result = await recommendBeer("chcem tmave pivo");
-        console.log(result);
-        
-        // Example: Recommend pub for specific beer
-        // const pubResult = await recommendPub(JSON.stringify({
-        //     name: "Šariš tmavý",
-        //     city: "Košice"
-        // }));
-        // console.log(pubResult);
-    } catch (err) {
-        console.error('Error:', err);
-    }
-}
+(async () => {
+    console.log(
+        await recommend_beer("chcem tmave pivo")
+    );
 
-// Run the main function
-main();
+    // Example:
+    /*
+    console.log(await recomend_pub(`{
+        "name": "Šariš tmavý",
+        "city": "Košice"
+    }`));
+    */
 
-// Export functions for use as a module
-export {
-    askAI,
-    recommendPub,
-    recommendBeer,
-    htmlToBeerJson,
-    createJsonOfPubBeers,
-    URLS
-};
+    // To generate beers.json:
+    // await create_json_of_pub_beers(URLS);
+})();

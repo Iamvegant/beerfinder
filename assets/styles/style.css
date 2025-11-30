@@ -43,8 +43,12 @@
         color: rgb(0, 0, 0);
     }
     
-    #nav a :hover {
-        font-size: 35px;
+    #nav div:hover {
+        color: white;
+    }
+    
+    #nav a:hover {
+        color: white;
     }
     
     #langMenuBtn {
@@ -71,6 +75,10 @@
     
     #langMenu * {
         visibility: inherit;
+    }
+    
+    #langMenuSubmit:hover {
+        background-color: #eee;
     }
     
     #langMenu a {
@@ -201,6 +209,11 @@
     
     #select-beer button p {
         margin: 0;
+    }
+    
+    #select-beer button:hover,
+    #sent:hover {
+        background: white;
     }
     
     #city {

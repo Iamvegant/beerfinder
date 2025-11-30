@@ -67,7 +67,7 @@
                                 ><?= $language["name"]?></option>
                             <?php endforeach?>
                         </select>
-                        <input type="submit" value="<?= $t["header"]["langMenu"]["button"]?>">
+                        <input id="langMenuSubmit"type="submit" value="<?= $t["header"]["langMenu"]["button"]?>">
                     </form>
       </div>
     <div id="overlay"></div>
@@ -100,13 +100,17 @@
             </div>
         <?php endif?>
 
-        <?php if(!isset($_POST[ 'select-beer2']) ): ?>
+        <?php if(!isset($_POST[ 'select-beer2']) ): ?> 
             <div id="show">
                 <div id="searchbarr">
-                    <div id="search">
+                    <!--<div id="search">
                         <input id="searchbar" type="text" name="searchbar" v-model="userPreference" :placeholder="translations.search_placeholder">
                         <button id="search-bt" @click="search"><img id="mag-glass" src="/assets/img/magnifying_glass.png" alt="magnifying_glass"></button>
-                    </div>
+                    </div>-->
+                     
+                   <searching :translations="translations" @search="runAI"></searching>
+
+
                 </div>
                 <div class="cards-container">
                     <beers
@@ -152,7 +156,7 @@
     <footer> 
     <script src="/assets/scripts/global.js"></script>
     <script type="module" defer src="/assets/scripts/script.js"></script>
-    <script src="./openai.js"></script>
+    <script type="module" src="./openai.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </body> 
 

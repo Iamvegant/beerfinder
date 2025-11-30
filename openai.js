@@ -1,47 +1,71 @@
-<?php
+import fs from 'fs/promises';
+import https from 'https';
 
-require_once "./utils.php";
-require "./config.php";
+// Configuration - set your OpenAI API key here or in environment variable
+const OPENAI_KEY = process.env.OPENAI_KEY || 'your-api-key-here';
 
-
-function ask_ai($text)
-{
-    global $OPENAI_KEY;
-    $data = [
-        "model" => "gpt-4.1-mini",
-        "messages" => [
-            ["role" => "user", "content" => $text]
-        ]
-    ];
-
-
-    $ch = curl_init();
-
-    curl_setopt_array($ch, [
-        CURLOPT_URL => "https://api.openai.com/v1/chat/completions",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POST => true,
-        CURLOPT_HTTPHEADER => [
-            "Content-Type: application/json",
-            "Authorization: Bearer $OPENAI_KEY"
-        ],
-        CURLOPT_POSTFIELDS => json_encode($data)
-    ]);
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    $response = json_decode($response, true);
-
-    $response = $response["choices"][0]["message"]["content"];
-
-    return $response;
+/**
+ * Fetches HTML content from a URL
+ */
+async function htmlFromUrl(url) {
+    return new Promise((resolve, reject) => {
+        https.get(url, (res) => {
+            let data = '';
+            res.on('data', (chunk) => data += chunk);
+            res.on('end', () => resolve(data));
+        }).on('error', reject);
+    });
 }
 
-function recomend_pub($beer_json, $lang = "slovak", $pubs_json_src = "./beers.json") {
-    $pubs_json = file_get_contents($pubs_json_src);
-    $prompt = <<<EOT
-You are given a JSON array of pubs with their beer lists. Each pub object has this structure:
+/**
+ * Makes a request to OpenAI API
+ */
+async function askAI(text) {
+    const data = JSON.stringify({
+        model: "gpt-4.1-mini",
+        messages: [
+            { role: "user", content: text }
+        ]
+    });
+
+    return new Promise((resolve, reject) => {
+        const options = {
+            hostname: 'api.openai.com',
+            path: '/v1/chat/completions',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${OPENAI_KEY}`,
+                'Content-Length': data.length
+            }
+        };
+
+        const req = https.request(options, (res) => {
+            let responseData = '';
+            res.on('data', (chunk) => responseData += chunk);
+            res.on('end', () => {
+                try {
+                    const parsed = JSON.parse(responseData);
+                    resolve(parsed.choices[0].message.content);
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        });
+
+        req.on('error', reject);
+        req.write(data);
+        req.end();
+    });
+}
+
+/**
+ * Recommends pubs based on a specific beer
+ */
+async function recommendPub(beerJson, lang = "slovak", pubsJsonSrc = "./beers.json") {
+    const pubsJson = await fs.readFile(pubsJsonSrc, 'utf-8');
+    
+    const prompt = `You are given a JSON array of pubs with their beer lists. Each pub object has this structure:
 
 {
     "name_of_pub": "string (or empty if unknown)",
@@ -81,20 +105,21 @@ Rules:
 2. If no pub matches, return an empty array: [].
 3. Do not include any extra text, comments, or formatting.
 4. Output must be valid JSON only.
-5. Translate the values in each field to $lang language.
+5. Translate the values in each field to ${lang} language.
 
-Input beer JSON: $beer_json
-Input pubs JSON: $pubs_json
-EOT;
+Input beer JSON: ${beerJson}
+Input pubs JSON: ${pubsJson}`;
 
-    return ask_ai($prompt);
+    return await askAI(prompt);
 }
 
-
-function recommend_beer($user_preference, $lang = "english", $pubs_json_src = "./beers.json") {
-    $pubs_json = file_get_contents($pubs_json_src);
-    $prompt = <<<EOT
-You are given a JSON array of pubs with their beer lists. Each pub object has this structure:
+/**
+ * Recommends beers based on user preference
+ */
+async function recommendBeer(userPreference, lang = "english", pubsJsonSrc = "./beers.json") {
+    const pubsJson = await fs.readFile(pubsJsonSrc, 'utf-8');
+    
+    const prompt = `You are given a JSON array of pubs with their beer lists. Each pub object has this structure:
 
 {
     "name_of_pub": "string (or empty if unknown)",
@@ -127,18 +152,20 @@ Return an array of matching beers, max 5 objects.
 If no beer matches, return an empty array: [].
 Do not include any extra text, comments, or formatting.
 Output must be valid JSON only.
-translate the values in each field to $lang language
-User preference: "$user_preference"
-Input JSON: $pubs_json
-EOT;
+translate the values in each field to ${lang} language
+User preference: "${userPreference}"
+Input JSON: ${pubsJson}`;
 
-    return ask_ai($prompt);
+    return await askAI(prompt);
 }
 
-function html_to_beer_json($url) {
-    $html = html_from_url($url);
-    $prompt = <<<EOT
-You are given HTML content from a pub's drink list. Extract and return only a single JSON object with this structure:
+/**
+ * Converts HTML from a pub website to structured beer JSON
+ */
+async function htmlToBeerJson(url) {
+    const html = await htmlFromUrl(url);
+    
+    const prompt = `You are given HTML content from a pub's drink list. Extract and return only a single JSON object with this structure:
 
 {
     "name_of_pub": "string (or empty if unknown)",
@@ -165,13 +192,12 @@ If the price is not for 500ml, convert if possible; otherwise leave empty.
 Output must be valid JSON only, no backticks or code formatting.
 Try to leave as few places empty as posible.
 
-HTML content: $html
-EOT;
+HTML content: ${html}`;
 
-    return ask_ai($prompt);
+    return await askAI(prompt);
 }
 
-$URLS = [
+const URLS = [
     "https://www.geronimogrill.sk/napojovy-listok",
     "https://riderspub.sk/?utm_source=chatgpt.com",
     "https://www.pivovarhostinec.sk/nase-piva/",
@@ -196,25 +222,60 @@ $URLS = [
     "https://savagebistro.sk/napojovy-listok/"
 ];
 
-function create_json_of_pub_bears($urls) {
-    $results = [];
+/**
+ * Scrapes all pub URLs and creates a JSON file with beer data
+ */
+async function createJsonOfPubBeers(urls) {
+    const results = [];
 
-    foreach ($urls as $index => $url) {
-        $json = html_to_beer_json($url);
-
-        echo $index + 1 . " of " . count($urls) . "\n";
-
-        //echo "\n" . $json . "\n";
-
-        $decoded = json_decode($json, true);
-
-        if ($decoded !== null) {
-            $results[] = $decoded;
+    for (let i = 0; i < urls.length; i++) {
+        try {
+            const json = await htmlToBeerJson(urls[i]);
+            console.log(`${i + 1} of ${urls.length}`);
+            
+            const decoded = JSON.parse(json);
+            results.push(decoded);
+        } catch (err) {
+            console.error(`Error processing ${urls[i]}:`, err.message);
         }
     }
 
-    echo "==================================================================";
-    $result_json = json_encode($results, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    echo $result_json;
-    file_put_contents("beers.json", $result_json);
+    console.log("==================================================================");
+    const resultJson = JSON.stringify(results, null, 2);
+    console.log(resultJson);
+    await fs.writeFile("beers.json", resultJson, 'utf-8');
 }
+
+// Example usage
+async function main() {
+    try {
+        // Uncomment to scrape pubs and create beers.json
+        // await createJsonOfPubBeers(URLS);
+        
+        // Example: Recommend dark beer
+        const result = await recommendBeer("chcem tmave pivo");
+        console.log(result);
+        
+        // Example: Recommend pub for specific beer
+        // const pubResult = await recommendPub(JSON.stringify({
+        //     name: "Šariš tmavý",
+        //     city: "Košice"
+        // }));
+        // console.log(pubResult);
+    } catch (err) {
+        console.error('Error:', err);
+    }
+}
+
+// Run the main function
+main();
+
+// Export functions for use as a module
+export {
+    askAI,
+    recommendPub,
+    recommendBeer,
+    htmlToBeerJson,
+    createJsonOfPubBeers,
+    URLS
+};

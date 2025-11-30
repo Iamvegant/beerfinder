@@ -191,5 +191,16 @@
     "what": {
         "city": "Zadejte město: "
     },
-    "search_placeholder": "Napis vlastnosti svého piva"
+    "search_placeholder": "Napis vlastnosti svého piva",
+    "footer": {
+        "footer-about": "Skupina programátorů a milovníků piva",
+        "footer-links": {
+            "home": "Domů",
+            "about": "O nás",
+            "finder": "Najít pivo",
+            "contact": "Kontakt"
+        },
+        "footer-social": "Sleduj nás",
+        "footer-bottom": "Všechna práva vyhrazena."
+    }
 }

@@ -1,4 +1,3 @@
-
 let card = {
     
     template:`
@@ -18,6 +17,5 @@ let card = {
         }
     }
 }
-
 
 export default card

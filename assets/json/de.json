@@ -191,5 +191,16 @@
     "what": {
         "city": "Stadt eingeben: "
     },
-    "search_placeholder": "Beschreiben Sie die Eigenschaften Ihres Bieres."
+    "search_placeholder": "Beschreiben Sie die Eigenschaften Ihres Bieres.",
+    "footer": {
+        "footer-about": "Eine Gruppe von Programmierern und Bierliebhabern",
+        "footer-links": {
+            "home": "Startseite",
+            "about": "Über uns",
+            "finder": "Bier finden",
+            "contact": "Kontakt"
+        },
+        "footer-social": "Folge uns",
+        "footer-bottom": "Alle Rechte vorbehalten."
+    }
 }

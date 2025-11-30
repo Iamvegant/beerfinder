@@ -191,5 +191,16 @@
     "what": {
         "city": "Wprowadź miasto: "
     },
-    "search_placeholder": "Napisz cechy swojego piwa"
+    "search_placeholder": "Napisz cechy swojego piwa",
+    "footer": {
+        "footer-about": "Grupa programistów i miłośników piwa",
+        "footer-links": {
+            "home": "Strona główna",
+            "about": "O nas",
+            "finder": "Znajdź piwo",
+            "contact": "Kontak"
+        },
+        "footer-social": "Śledź nas",
+        "footer-bottom": "Wszelkie prawa zastrzeżone."
+    }
 }

@@ -191,5 +191,16 @@
     "what": {
         "city": "Enter city: "
     },
-    "search_placeholder": "Characterize your beer"
+    "search_placeholder": "Characterize your beer",
+    "footer": {
+        "footer-about": "A group of programmers and beer enthusiasts",
+        "footer-links": {
+            "home": "Home",
+            "about": "About us",
+            "finder": "Find my beer",
+            "contact": "Contact"
+        },
+        "footer-social": "Follow us",
+        "footer-bottom": "All rights reserved."
+    }
 }

@@ -38,12 +38,15 @@ createApp({
             if(input) input.value = beerName;
         }
 
+    const beers = ref(window.beers);
+
         return {
             showSearch,
             toggleSearchBar,
             info,
             translations,
-            fillBeerInput
+            fillBeerInput,
+            beers
         }
     }
 }).mount("#app")

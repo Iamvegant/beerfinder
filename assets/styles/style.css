@@ -14,7 +14,7 @@
         flex-wrap: wrap;
         flex-grow: 2;
         justify-content: space-between;
-        background-color: rgb(150, 130, 70);
+        background-color: rgb(252, 148, 15)
     }
     
     header img {
@@ -26,6 +26,7 @@
     #nav {
         display: flex;
         position: relative;
+        font-weight: bold;
         /*right: 50px;*/
         flex-direction: row;
         justify-content: space-evenly;
@@ -33,13 +34,13 @@
         min-width: 200px;
         font-size: 25px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: black;
+        color: rgb(0, 0, 0);
         text-decoration: none;
     }
     
     #nav a {
         text-decoration: none;
-        color: black;
+        color: rgb(0, 0, 0);
     }
     
     #langMenuBtn {
@@ -99,9 +100,9 @@
         padding-left: 15px;
         font-size: 1.35em;
         height: 2em;
-        background-color: rgb(228, 184, 74);
+        background-color: rgb(252, 148, 15);
         font-family: 'Gill Sans MT', 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif;
-        color: white;
+        color: rgb(1, 1, 1);
     }
     
     #langMenu input {
@@ -109,7 +110,7 @@
         width: fit-content;
         align-self: end;
         background-color: silver;
-        color: white;
+        color: rgb(0, 0, 0);
         font-size: 1.35em;
         padding: 7.5px 20px;
         border: none;
@@ -127,15 +128,21 @@
         left: 0;
     }
     
+    main {
+        padding: 100px 0;
+    }
+    
     #select-beer {
         display: flex;
         flex-direction: column;
-        flex-shrink: 1;
         margin-top: 20px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        justify-self: center;
+        font-weight: bold;
         font-size: 30px;
-        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     form {
@@ -145,20 +152,16 @@
     }
     
     #select-beer2 {
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 1;
-        padding-top: 10px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding-bottom: 10px;
-        padding-right: 20px;
-        padding-left: 30px;
-        justify-self: center;
-        min-width: 600px;
+        width: 100%;
+        max-width: 600px;
+        padding: 10px 20px;
         font-size: 20px;
         border-radius: 30px;
+        margin-bottom: -20px;
+        box-sizing: border-box;
+        justify-content: flex-end;
     }
-    
+    /*
     #select-beer button {
         position: relative;
         justify-self: center;
@@ -177,6 +180,23 @@
         margin: 5px;
         left: 85%;
         width: fit-content;
+    }*/
+    
+    #select-beer button,
+    #sent {
+        margin: auto;
+        /* right-align WITHOUT breaking layout */
+        margin-bottom: 20px;
+        border-radius: 30px;
+        font-size: large;
+        height: 50px;
+        width: fit-content;
+        min-width: 210px;
+        padding: 0 20px;
+    }
+    
+    #select-beer button p {
+        margin: 0;
     }
     
     #searchbar {
@@ -218,10 +238,10 @@
     }
     
     footer {
-        background-color: rgb(150, 130, 70);
-        color: #eee;
+        max-height: fit-content;
+        background-color: rgb(252, 148, 15);
+        color: black;
         padding: 40px 20px 20px 20px;
-        font-family: Arial, sans-serif;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     
@@ -264,7 +284,7 @@
     }
     
     .social-icons img {
-        height: 10px;
+        height: 30px;
         width: auto;
     }
     

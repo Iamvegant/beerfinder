@@ -1,4 +1,6 @@
 <?php
+    require_once "./openai.php";
+
     $languages = [
         'de' => [
             "name" => "Deutsch"
@@ -39,6 +41,11 @@
     <title>Beer Finder</title>
     <script>
         sessionStorage.setItem("lang", "<?= $lang ?>");
+        <?php if(isset($_POST['searchbar'])): ?>sessionStorage.setItem("searchbar", "<?= $_POST['searchbar'] ?>"); <?php endif ?>
+    </script>
+
+    <script>
+        window.beers = <?= json_encode(recommend_beer("daco cierne"), JSON_UNESCAPED_UNICODE) ?>;
     </script>
 </head>
 <body >
@@ -63,30 +70,30 @@
                         </select>
                         <input type="submit" value="<?= $t["header"]["langMenu"]["button"]?>">
                     </form>
-        </div>
-        <div id="overlay"></div>
+      </div>
+    <div id="overlay"></div>
     </header>
     <main id="app">
         
         <!-- <div id="finder">
-            <forms :translations="translations" lang="<?= $lang?>" post="<?= $_POST ?>"></forms>
+            <forms :translations="translations" lang="<?= $lang?>" post="<?= $_POST ?>"></forms    >
         </div> -->
 
-        <?php if(!$_POST['city']): ?>
+        <?php if(!$_POST['city']    ): ?>
             <div id="select-beer">
                 <form action="/index.php/?lang=<?= $lang ?>" method="POST">
                     
                     <label for="select-beer"><?= $t["formBeer"]["selectBeer"]?> </label>
-                    <br>
+                        <br>
                     <input type="text" 
                     id="select-beer2" 
                     name="select-beer2" 
                     value="<?= $_POST['select-beer2']?>"><br> 
-                    <?php if(isset($_POST['select-beer2'])): ?> 
+                      <?php if(isset($_POST['select-beer2'])): ?> 
                         <label for="select-beer2"><?= $t["what"]["city"]?></label> 
-                        <input type="text" id="city" name="city" value="<?= $_POST['city']?>"><br> 
+                         <input type="text" id="city" name="city" value="<?= $_POST['city']?>"><br> 
                     <?php endif?> 
-                    <input id="sent" type="submit" value="<?= $t["header"]["langMenu"]["button"]?>"> 
+                        <input id="sent" type="submit" value="<?= $t["header"]["langMenu"]["button"]   ?>"> 
                 </form>
             <?php if(!isset($_POST['select-beer2'])): ?>
                 <button @click="toggleSearchBar"> <p><?= $t["noBeer"]["idk"]?></p> </button>
@@ -94,13 +101,19 @@
             </div>
         <?php endif?>
 
-        <?php if(!isset($_POST['select-beer2'])): ?>
+        <?php if(!isset($_POST[ 'select-beer2']) ): ?>
             <div id="show">
                 <div id="searchbarr">
                     <searching v-if="showSearch" :translations="translations"></searching>
                 </div>
                 <div class="cards-container">
-                    <beers v-for="beer in info" :beer="beer" :key="beer.id" @select-beer="fillBeerInput"></beers>
+                    <beers
+                        v-for="beer in beers"
+                        :beer="beer"
+                        :key="beer.id"
+                        @select-beer="fillBeerInput"
+                    ></beers>
+
                 </div>
             </div>
             <script>document.getElementById("show").style.display = "none";</script>
@@ -111,28 +124,28 @@
    <div class="footer-container">
     <div class="footer-about">
       <h3>BeerFinder</h3>
-      <p>Skupina programatorov a milovnikov piva</p> 
+      <p><?= $t['footer']['footer-about']?></p> 
     </div>
     <div class="footer-links">
       <h4>Rýchle odkazy</h4>
       <ul>
-        <li><a href="#">Domov</a></li>
-        <li><a href="#">O nás</a></li>
-        <li><a href="#">Služby</a></li>
-        <li><a href="#">Kontakt</a></li>
+        <li><a href="#"><?= $t['footer']['footer-links']['home']?></a></li>
+        <li><a href="#"><?= $t['footer']['footer-links']['about']?></a></li>
+        <li><a href="#"><?= $t['footer']['footer-links']['finder']?></a></li>
+        <li><a href="#"><?= $t['footer']['footer-links']['a']?></a></li>
       </ul>
     </div>
     <div class="footer-social">
-      <h4>Sleduj nás</h4>
+      <h4><?= $t['footer']['footer-social']?></h4>
       <div class="social-icons">
         <a href="https://www.facebook.com/slovenska.sporitelna.3?locale=sk_SK"><img src="/assets/img/facebook-icon.png" alt="Facebook"></a>
-        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+        <a href="https://www.instagram.com/p/DRnXnbFCeGd/"><img src="/assets/img/instagram-icon.png" alt="Instagram"></a>
+        <a href="https://x.com/RobertFicoSVK"><img src="/assets/img/twitter-icon.png" alt="Twitter"></a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 BeerFinder. Všetky práva vyhradené.</p>
+    <p>© 2025 BeerFinder. <?= $t['footer']['footer-bottom']?></p>
   </div>
     <footer> 
     <script src="/assets/scripts/global.js"></script>
